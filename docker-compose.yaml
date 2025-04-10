@@ -1,0 +1,34 @@
+services:
+
+  laravel-lab:
+    container_name: laravel-lab
+    image: bitnami/laravel:12.0.3
+    environment:
+      DB_HOST: mysql_db
+      DB_PORT: 3306 
+      DB_USERNAME: piotr
+      DB_DATABASE: laravel
+      LARAVEL_DATABASE_PASSWORD: admin
+    volumes:
+      - ./:/app
+    depends_on: 
+      - mysql_db
+    ports:
+      - 9000:8000
+
+  mysql_db:
+    image: mysql:8.0.41
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: piotr
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+    - 3306:3306
+  
+  phpmyadmin:
+    image: phpmyadmin:5.2.2
+    ports:
+      - 9001:80
+    environment:
+      - PMA_ARBITRARY=0
