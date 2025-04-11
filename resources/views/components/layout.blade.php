@@ -24,8 +24,8 @@
                                     <x-nav-link href="/" :active="request()->is('/')" class="hidden text-sm md:block">
                                         Home
                                     </x-nav-link>
-                                    <x-nav-link href="/about" :active="request()->is('about')" class="hidden text-sm md:block">
-                                        About
+                                    <x-nav-link href="/jobs" :active="request()->is('jobs')" class="hidden text-sm md:block">
+                                        Jobs
                                     </x-nav-link>
                                     <x-nav-link href="/contact" :active="request()->is('contact')" class="hidden text-sm md:block">
                                         Contact
@@ -91,8 +91,8 @@
                         <x-nav-link href="/" :active="request()->is('/')" class="block text-base md:hidden">
                             Home
                         </x-nav-link>
-                        <x-nav-link href="/about" :active="request()->is('about')" class="block text-base md:hidden">
-                            About
+                        <x-nav-link href="/jobs" :active="request()->is('jobs')" class="block text-base md:hidden">
+                            Jobs
                         </x-nav-link>
                         <x-nav-link href="/contact" :active="request()->is('contact')" class="block text-base md:hidden">
                             Contact
