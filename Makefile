@@ -10,5 +10,3 @@ composer-update:
 data:
 	docker exec laravel-lab bash -c "php artisan migrate"
 	docker exec laravel-lab bash -c "php artisan db:seed"
-model-%:
-	docker exec laravel-lab bash -c "php artisan make:model $*"
