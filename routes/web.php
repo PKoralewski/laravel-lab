@@ -21,40 +21,33 @@ Route::group(['prefix' => '/jobs',], function () {
         return view('jobs.create');
     });
 
-    Route::get('/{id}', function ($id) {
-        $job = Job::find($id);
-
+    Route::get('/{job}', function (Job $job) {
         return view('jobs.show', [
             'job' => $job
         ]);
     });
 
-    Route::get('/{id}/edit', function ($id) {
-        $job = Job::find($id);
-
+    Route::get('/{job}/edit', function (Job $job) {
         return view('jobs.edit', [
             'job' => $job
         ]);
     });
 
-    Route::patch('/{id}', function ($id) {
+    Route::patch('/{job}', function (Job $job) {
         request()->validate([
             'title' => ['required', 'min: 3'],
             'salary' => ['required']
         ]);
 
-        $job = Job::find($id);
         $job->update([
             'title' => request('title'),
             'salary' => request('salary')
         ]);
 
-        return redirect("/jobs/{$id}");
+        return redirect("/jobs/{$job->id}");
     });
 
-    Route::delete('/{id}', function ($id) {
-
-        $job = Job::findOrFail($id);
+    Route::delete('/{job}', function (Job $job) {
         $job->delete();
 
         return redirect("/jobs");
