@@ -29,6 +29,29 @@ Route::group(['prefix' => '/jobs',], function () {
         ]);
     });
 
+    Route::get('/{id}/edit', function ($id) {
+        $job = Job::find($id);
+
+        return view('jobs.edit', [
+            'job' => $job
+        ]);
+    });
+
+    Route::patch('/{id}', function ($id) {
+        request()->validate([
+            'title' => ['required', 'min: 3'],
+            'salary' => ['required']
+        ]);
+
+        $job = Job::find($id);
+        $job->update([
+            'title' => request('title'),
+            'salary' => request('salary')
+        ]);
+
+        return redirect("/jobs/{$id}");
+    });
+
     Route::post('/', function () {
         request()->validate([
             'title' => ['required', 'min: 3'],
