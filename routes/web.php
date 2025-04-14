@@ -52,6 +52,14 @@ Route::group(['prefix' => '/jobs',], function () {
         return redirect("/jobs/{$id}");
     });
 
+    Route::delete('/{id}', function ($id) {
+
+        $job = Job::findOrFail($id);
+        $job->delete();
+
+        return redirect("/jobs");
+    });
+
     Route::post('/', function () {
         request()->validate([
             'title' => ['required', 'min: 3'],
