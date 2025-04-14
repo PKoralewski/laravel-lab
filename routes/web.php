@@ -1,12 +1,11 @@
 <?php
 
 use App\Models\Job;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-});
+
+Route::view('/', 'home');
+Route::view('/contact', 'contact');
 
 Route::group(['prefix' => '/jobs',], function () {
     Route::get('/', function () {
@@ -67,9 +66,4 @@ Route::group(['prefix' => '/jobs',], function () {
 
         return redirect('/jobs');
     });
-});
-
-
-Route::get('/contact', function () {
-    return view('contact');
 });
