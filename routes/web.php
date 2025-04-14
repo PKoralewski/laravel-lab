@@ -30,6 +30,11 @@ Route::group(['prefix' => '/jobs',], function () {
     });
 
     Route::post('/', function () {
+        request()->validate([
+            'title' => ['required', 'min: 3'],
+            'salary' => ['required']
+        ]);
+
         Job::create([
             'title' => request('title'),
             'salary' => request('salary'),
