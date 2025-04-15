@@ -23,7 +23,7 @@
                         <x-form-label for="password">Password</x-form-label>
 
                         <div class="mt-2">
-                            <x-form-input name="password" id="password" type="password" :value="old('password')" required />
+                            <x-form-input name="password" id="password" type="password" required />
 
                             <x-form-error name="password" />
                         </div>
