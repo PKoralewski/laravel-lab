@@ -45,6 +45,11 @@ Aby uruchomić projekt, potrzebne są następujące narzędzia:
    ```bash
    make setup
    ```
+   Jeżeli nie mamy zainstalowany GNU Make możemy uruchomić projekt poprzez:
+   ```bash
+   docker compose build
+   docker compose up
+   ```
 
 
 4. Aplikacja powinna być dostępna pod adresem: [http://localhost:9000](http://localhost:9000)
