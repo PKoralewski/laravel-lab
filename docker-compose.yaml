@@ -2,7 +2,7 @@ services:
 
   laravel-lab:
     container_name: laravel-lab
-    image: bitnami/laravel:12.0.3
+    build: .
     environment:
       DB_HOST: mysql_db
       DB_PORT: 3306 
