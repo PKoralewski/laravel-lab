@@ -45,7 +45,7 @@ Aby uruchomić projekt, potrzebne są następujące narzędzia:
    ```bash
    make setup
    ```
-   Jeżeli nie mamy zainstalowany GNU Make możemy uruchomić projekt poprzez:
+   Jeżeli nie mamy zainstalowanego GNU Make możemy uruchomić projekt poprzez:
    ```bash
    docker compose build
    docker compose up
